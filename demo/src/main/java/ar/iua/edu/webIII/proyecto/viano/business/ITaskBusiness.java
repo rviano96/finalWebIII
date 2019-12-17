@@ -9,7 +9,7 @@ import ar.iua.edu.webIII.proyecto.viano.model.Task;
 public interface ITaskBusiness {
 
 	public List<Task> list() throws BusinessException;
-	public Task save(Task task) throws BusinessException, InvalidPriorityException, DateNullException, AssignNotAllowedException, ListDoesNotExistException;
+	public Task save(Task task) throws BusinessException, InvalidPriorityException, DateNullException, AssignNotAllowedException, ListDoesNotExistException, InvalidTaskException;
 	public void remove(int id) throws BusinessException, NotFoundException;
 	// update se usa para cambiar datos de las tareas( estimacion, descripcion y prioridad) , pero no para moverlas
 	public Task update(int id, Task task) throws BusinessException, InvalidPriorityException, DateNullException, InvalidEstimationException, CannotMoveException, NotFoundException;

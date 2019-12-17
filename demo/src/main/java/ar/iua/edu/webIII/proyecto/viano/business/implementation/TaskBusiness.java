@@ -44,7 +44,7 @@ public class TaskBusiness implements ITaskBusiness {
     }
 
     @Override
-    public Task save(Task task) throws BusinessException, InvalidPriorityException, DateNullException, AssignNotAllowedException, ListDoesNotExistException {
+    public Task save(Task task) throws BusinessException, InvalidPriorityException, DateNullException, AssignNotAllowedException, ListDoesNotExistException, InvalidTaskException {
         Optional<Task> op = null;
         Optional<SprintList> opList = null;
         //op = taskDao.findOneByName(task.getName());
@@ -62,6 +62,10 @@ public class TaskBusiness implements ITaskBusiness {
         if (!task.getPriority().equalsIgnoreCase(Constantes.MEDIUM_PRIORITY) && !task.getPriority().equalsIgnoreCase(Constantes.HIGH_PRIORITY) &&
                 !task.getPriority().equalsIgnoreCase(Constantes.LOW_PRIORITY)) {
             throw new InvalidPriorityException("La tarea debe tener asignada una de las siguientes prioridades : " + Constantes.LOW_PRIORITY + ", " + Constantes.MEDIUM_PRIORITY + ", " + Constantes.HIGH_PRIORITY);
+        }
+        if(task.getEstimation() == null || task.getEstimation() < 0){
+            log.error("La estimacion tiene que ser mayor a 0");
+            throw new InvalidTaskException("La estimacion tiene que ser mayor a 0");
         }
         try {
             task = taskDao.save(task);
@@ -286,6 +290,10 @@ public class TaskBusiness implements ITaskBusiness {
         if (task.getCreation() == null || task.getModification() == null) {
             log.error("La tarea debe tener asignada una fecha de creacion o de modificacion");
             throw new DateNullException("La tarea debe tener asignada una fecha de creacion o de modificacion");
+        }
+        if(task.getEstimation() == null || task.getEstimation() < 0){
+            log.error("La estimacion tiene que ser mayor a 0");
+            throw new InvalidTaskException("La estimacion tiene que ser mayor a 0");
         }
         if (task.getListName() == null) {
             log.error("La tarea no esta asociada a una lista");

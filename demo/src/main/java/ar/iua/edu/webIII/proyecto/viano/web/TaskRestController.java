@@ -133,7 +133,7 @@ public class TaskRestController extends BaseRestController {
             return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
         } catch (BusinessException e) {
             return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } catch (DateNullException | AssignNotAllowedException | InvalidPriorityException | ListDoesNotExistException e) {
+        } catch (DateNullException | AssignNotAllowedException | InvalidPriorityException | ListDoesNotExistException| InvalidTaskException e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

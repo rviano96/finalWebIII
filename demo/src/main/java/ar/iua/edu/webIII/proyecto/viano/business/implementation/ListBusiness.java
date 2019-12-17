@@ -113,12 +113,13 @@ public class ListBusiness implements IListBusiness {
         }
         try {
             op = listDao.findBySprintId(idSprint);
-            if (!op.isPresent()) {
-                log.error("No hay ninguna lista que petenezca al sprint con id =" + idSprint);
-                throw new NotFoundException("No hay ninguna lista que petenezca al sprint con id =" + idSprint);
-            }
+
         } catch (Exception e) {
             throw new BusinessException(e);
+        }
+        if (!op.isPresent()) {
+            log.error("No hay ninguna lista que petenezca al sprint con id =" + idSprint);
+            throw new NotFoundException("No hay ninguna lista que petenezca al sprint con id =" + idSprint);
         }
         return op.get();
     }

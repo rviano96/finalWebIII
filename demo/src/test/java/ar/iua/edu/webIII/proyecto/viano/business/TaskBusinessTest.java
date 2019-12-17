@@ -55,7 +55,7 @@ public class TaskBusinessTest {
 	}
 
     @Test(expected =ar.iua.edu.webIII.proyecto.viano.business.exceptions.ListDoesNotExistException.class)
-    public void testSaveFaliure() throws BusinessException, DateNullException, ListDoesNotExistException, InvalidPriorityException, AssignNotAllowedException {
+    public void testSaveFaliure() throws BusinessException, DateNullException, ListDoesNotExistException, InvalidPriorityException, AssignNotAllowedException, InvalidTaskException {
         list.setId(50);
         task.setName("Tarea prueba");
         task.setListName(list);
@@ -70,7 +70,7 @@ public class TaskBusinessTest {
     }
 
 	@Test
-	public void testSaveSuccess() throws BusinessException, DateNullException, ListDoesNotExistException, InvalidPriorityException, AssignNotAllowedException, NotFoundException {
+	public void testSaveSuccess() throws BusinessException, DateNullException, ListDoesNotExistException, InvalidPriorityException, AssignNotAllowedException, NotFoundException, InvalidTaskException {
        task = new Task();
        task.setName("tarea prueba");
        task.setModification(new Date());
