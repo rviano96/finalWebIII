@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "a7487918-4b7e-4fe2-9bd2-d68844a8b75b",
+		"name": "Consultas Web III ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/dologin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "rodrigoUserAdmin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/dologin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dologin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/lists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "VCtPRys2cHB3aWZkY3lZVnJweXVkUT09OnRDbm9nTStkL1Zta1hUYUdSZXhGVlE9PQ",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYyNDk1OTUsInZlcnNpb24iOjIsImlhdCI6MTU3NjE2MzE5NX0.Ykm1Bu50XV9y5NNA-hcNrvTSLWRezEypq63DbH8EBBAi5nVph0IHwDVzO2zGms6o6rNHIahn_U17_7e7c2flwg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/lists/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/lists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "bW95dlR2aDNVM3IwbkhUWjNYT0tYUT09OjVOVTNUSTNqNmJxS2FWUCtETXRuc2c9PQ",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYyNDM3ODQsInZlcnNpb24iOjEsImlhdCI6MTU3NjE1NzM4NH0.NEAhiQAuNHrZtO9G6hGbPTwtOsJdPH_k-FKNx3TrJxeibznKEz8AaQowH6QtykJyQ3fPLXq_LYp1FMsnfnk1KA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"ss\",\n\t\"sprint\": {\n\t\t\"id\": 1\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/lists",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"type": "text",
+						"value": "bW95dlR2aDNVM3IwbkhUWjNYT0tYUT09OjVOVTNUSTNqNmJxS2FWUCtETXRuc2c9PQ",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"todo\",\n\t\"id\": 5,\n\t\"sprint\": {\n\t\t\"id\": 2\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/lists",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"type": "text",
+						"value": "bW95dlR2aDNVM3IwbkhUWjNYT0tYUT09OjVOVTNUSTNqNmJxS2FWUCtETXRuc2c9PQ",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"todo\",\n\t\"sprint\": {\n\t\t\"id\": 2\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/lists/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/sprints",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"type": "text",
+						"value": "bW95dlR2aDNVM3IwbkhUWjNYT0tYUT09OjVOVTNUSTNqNmJxS2FWUCtETXRuc2c9PQ",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"todo\",\n\t\"sprint\": {\n\t\t\"id\": 2\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/sprints/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"sprints",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"type": "text",
+						"value": "bW95dlR2aDNVM3IwbkhUWjNYT0tYUT09OjVOVTNUSTNqNmJxS2FWUCtETXRuc2c9PQ",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"todo\",\n\t\"sprint\": {\n\t\t\"id\": 2\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"creation\": 1576113371020,\n  \"description\": \"Tarea de prueba\",\n  \"estimation\": 2,\n  \"listName\": {\n    \"id\":1\n  },\n  \"modification\": 1576113371020,\n  \"name\": \"tarea 7\",\n  \"priority\": \"Alta\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"creation\": 1575931561519,\n  \"description\": \"Tarea de prueba\",\n  \"estimation\": 5,\n  \"listName\": {\n    \"id\":1\n  },\n  \"modification\": 1575931561519,\n  \"name\": \"tarea\",\n\t\"priority\" : \"Baja\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"6"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/date/{sprintid}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/date/1?order=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"date",
+						"1"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/estimation/{sprintid}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/estimation/1?estimation=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"estimation",
+						"1"
+					],
+					"query": [
+						{
+							"key": "estimation",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/list/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/list/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"list",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/list/{id}/creation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/list/1/creation?sprintname=Sprint 1&order=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"list",
+						"1",
+						"creation"
+					],
+					"query": [
+						{
+							"key": "sprintname",
+							"value": "Sprint 1"
+						},
+						{
+							"key": "order",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/list/{id}/priority/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/list/1/priority?sprintname=Sprint 1&order=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"list",
+						"1",
+						"priority"
+					],
+					"query": [
+						{
+							"key": "sprintname",
+							"value": "Sprint 1"
+						},
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/priority/{idsprint}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/priority/1?order=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"priority",
+						"1"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/tasks/move/{idlist}/{idtask}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tasks/move/3/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"move",
+						"3",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/lists/{nale}/sprint/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "YVRpYkozcEVWQ1poMVJUMWpHQlRjQT09Ok5lVVYyc21FV0FDV2dNdEhvb1VNMHc9PQ",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYyNDM3ODQsInZlcnNpb24iOjEsImlhdCI6MTU3NjE1NzM4NH0.NEAhiQAuNHrZtO9G6hGbPTwtOsJdPH_k-FKNx3TrJxeibznKEz8AaQowH6QtykJyQ3fPLXq_LYp1FMsnfnk1KA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/lists/BackLog/sprint/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"BackLog",
+						"sprint",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/dologin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "rodrigoUserAdmin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/dologin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dologin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/sprints",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Sprint 2\",\n\t\"startDate\": 1576097073701\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/sprints",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"sprints"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/sprints",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYxOTQ4NzksInZlcnNpb24iOjEsImlhdCI6MTU3NjEwODQ3OX0.mS3A6NivYP6Ww1uCEx-rrido4ecWp8uPJDU9YNbNv6AoXFUOAdczqXJG2fBCRsng1GPtohOCZtTLJejEIYMN5A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/sprints",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"sprints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/lists/sprint/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYyNDM3ODQsInZlcnNpb24iOjEsImlhdCI6MTU3NjE1NzM4NH0.NEAhiQAuNHrZtO9G6hGbPTwtOsJdPH_k-FKNx3TrJxeibznKEz8AaQowH6QtykJyQ3fPLXq_LYp1FMsnfnk1KA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/lists/sprint/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"sprint",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/usuarios/rodrigoUserAdmin/roles",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyb2RyaWdvVXNlckFkbWluIiwicm9sZSI6InVzZXIiLCJleHAiOjE1NzYyNTAzMjQsInZlcnNpb24iOjQsImlhdCI6MTU3NjE2MzkyNH0.zSJbFY4nt2AXhi1PDkNOMvoNEYbO4HQxs1THQ_B4sGE1UZesFstBGg8MAYjBfgXQ4V0pGuAWqb9xFZLe3grkng",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"password2\",\n\t\"newValue\": [\"ROLE_ADMIN\",\"ROLE_USER\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/usuarios/rodrigoUserAdmin/roles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"rodrigoUserAdmin",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
