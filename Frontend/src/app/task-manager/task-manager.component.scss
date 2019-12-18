@@ -1,0 +1,9 @@
+.dragList {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white;
+}
+::ng-deep .cdk-overlay-container {
+  position: fixed !important;
+  z-index: 100000 !important; /* set value you need */
+}

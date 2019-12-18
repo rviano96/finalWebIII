@@ -1,0 +1,248 @@
+<div>
+  <div class="row m-2">
+    <div class="m-auto">
+      <input placeholder="Ingrese el nombre de la lista" [(ngModel)]="listName">
+      <button (click)="createList()">Nueva Lista</button>
+    </div>
+  </div>
+  <div class="row" *ngIf='canLoad'>
+    <div class="col" *ngIf="backlog">
+      <h2>Backlog <i class="far fa-trash-alt cursor-pointer" (click)="deleteList('backlog')"></i></h2>
+      <div class="backlog dragList" cdkDropList id='backlogList' [cdkDropListData]="backlog"
+        [cdkDropListConnectedTo]="['todoList']" (cdkDropListDropped)="drop($event)">
+        <div class="alert alert-danger cursor-pointer" *ngFor="let todo of backlog" cdkDrag [cdkDragData]="todo">
+          <i class="fas fa-pencil-alt cursor-pointer m-2" (click)="openUpdateModal(todo, 'backlog')"></i>
+          <i class="far fa-trash-alt cursor-pointer m-2" (click)="openDeleteModal(todo)"></i>
+          <br>
+          Nombre: {{todo.name}} <br>
+          Descripcion: {{todo.description}}<br>
+          Estimacion: {{todo.estimation}}<br>
+          Prioridad: {{todo.priority}}<br>
+          Creacion: {{todo.creation |  date:'d/MM/y'}}<br>
+          Modificacion: {{todo.modification |  date:'d/MM/y' }}
+        </div>
+        <div (click)="addTaskModal.show()" class="alert alert-light cursor-pointer">
+          add...
+        </div>
+      </div>
+    </div>
+    <div class="col" *ngIf="todos">
+      <h2>Todo <i class="far fa-trash-alt cursor-pointer" (click)="deleteList('todo')"></i></h2>
+      <div class="todo dragList" cdkDropList id='todoList' [cdkDropListData]="todos"
+        [cdkDropListConnectedTo]="['doingList', 'doneList', 'waitingList']" (cdkDropListDropped)="drop($event)">
+        <div class="alert alert-warning cursor-pointer " *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo">
+          <i class="fas fa-pencil-alt cursor-pointer  m-2" (click)="openUpdateModal(todo, 'todo')"></i>
+          <i class="far fa-trash-alt cursor-pointer  m-2" (click)="openDeleteModal(todo)"></i>
+          <br>
+          Nombre: {{todo.name}} <br>
+          Descripcion: {{todo.description}}<br>
+          Estimacion: {{todo.estimation}}<br>
+          Prioridad: {{todo.priority}}<br>
+          Creacion: {{todo.creation |  date:'d/MM/y'}}<br>
+          Modificacion: {{todo.modification |  date:'d/MM/y' }}
+        </div>
+      </div>
+    </div>
+    <div class="col" *ngIf="waiting">
+      <h2>Waiting <i class="far fa-trash-alt cursor-pointer" (click)="deleteList('waiting')"></i></h2>
+      <div class="waiting dragList" cdkDropList id='waitingList' [cdkDropListData]="waiting"
+        [cdkDropListConnectedTo]="['doingList', 'doneList', 'todoList']" (cdkDropListDropped)="drop($event)">
+        <div class="alert alert-secondary cursor-pointer" *ngFor="let todo of waiting" cdkDrag [cdkDragData]="todo">
+          <i class="fas fa-pencil-alt cursor-pointer  m-2" (click)="openUpdateModal(todo, 'waiting')"></i>
+          <i class="far fa-trash-alt cursor-pointer  m-2" (click)="openDeleteModal(todo)"></i>
+          <br>
+          Nombre: {{todo.name}} <br>
+          Descripcion: {{todo.description}}<br>
+          Estimacion: {{todo.estimation}}<br>
+          Prioridad: {{todo.priority}}<br>
+          Creacion: {{todo.creation |  date:'d/MM/y'}}<br>
+          Modificacion: {{todo.modification |  date:'d/MM/y' }}
+        </div>
+      </div>
+    </div>
+    <div class="col" *ngIf="doing">
+      <h2 cdkDrag>In Progress <i class="far fa-trash-alt cursor-pointer" (click)="deleteList('inprogress')"></i></h2>
+      <div class="inprogress dragList" cdkDropList id='doingList' [cdkDropListData]="doing"
+        [cdkDropListConnectedTo]="['waitingList', 'doneList', 'todoList']" (cdkDropListDropped)="drop($event)">
+        <div class="alert alert-primary cursor-pointer" *ngFor="let todo of doing" cdkDrag [cdkDragData]="todo">
+          <i class="fas fa-pencil-alt cursor-pointer  m-2" (click)="openUpdateModal(todo, 'inprogress')"></i>
+          <i class="far fa-trash-alt cursor-pointer  m-2" (click)="openDeleteModal(todo)"></i>
+          <br>
+          Nombre: {{todo.name}} <br>
+          Descripcion: {{todo.description}}<br>
+          Estimacion: {{todo.estimation}}<br>
+          Prioridad: {{todo.priority}}<br>
+          Creacion: {{todo.creation |  date:'d/MM/y'}}<br>
+          Modificacion: {{todo.modification |  date:'d/MM/y' }}
+        </div>
+      </div>
+    </div>
+    <div class="col" *ngIf="done">
+      <h2>Done <i class="far fa-trash-alt cursor-pointer" (click)="deleteList('done')"></i></h2>
+      <div class="done dragList" cdkDropList id='doneList' [cdkDropListData]="done" [cdkDropListConnectedTo]="[]"
+        (cdkDropListDropped)="drop($event)">
+        <div class="alert alert-success cursor-pointer" *ngFor="let todo of done" cdkDrag [cdkDragData]="todo">
+          <i class="far fa-trash-alt cursor-pointer  m-2" (click)="openDeleteModal(todo)"></i>
+          <br>
+          Nombre: {{todo.name}} <br>
+          Descripcion: {{todo.description}}<br>
+          Estimacion: {{todo.estimation}}<br>
+          Prioridad: {{todo.priority}}<br>
+          Creacion: {{todo.creation |  date:'d/MM/y'}}<br>
+          Modificacion: {{todo.modification |  date:'d/MM/y' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #addTaskModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: 'static',  keyboard: false}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="addTaskModal.hide(); clearModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Crear una nueva tarea</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Ingresa un nombre
+            </div>
+            <input type="text" id="name" class="form-control md-input" rows="4" [(ngModel)]="newTask.name" name="name"
+              maxlength="10" on-input="computeCharsRemainingName()">
+            <p style="font-weight: lighter; color: #999999">Quedan {{charsRemainingName}} caracteres.</p>
+          </div>
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Selecciona una prioridad
+              <!--.Select prioridad-->
+              <select class="browser-default custom-select" [(ngModel)]="selectedPriority">
+                <option *ngFor="let priority of priorities" [value]="priority.value">{{ priority.label }}</option>
+              </select>
+              <!--./Select prioridad-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Ingresa una estimacion
+            </div>
+            <input type="number" id="estimation" class="form-control md-input" rows="4" [(ngModel)]="newTask.estimation"
+              name="estimation" min=0 required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Fecha de creacion
+            </div>
+            <input type="date" id="creation" name="trip-start" [ngModel]="newTask.creation | date:'yyyy-MM-dd'" disabled>
+          </div>
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Fecha de modificacion
+            </div>
+            <input type="date" id="modification" name="trip-start" [ngModel]="newTask.creation | date:'yyyy-MM-dd'" disabled>
+          </div>
+        </div>
+        <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+          Ingresa una descripci&#243;n
+        </div>
+        <textarea type="text" id="description" class="form-control md-textarea" rows="4"
+          [(ngModel)]="newTask.description" name="description" maxlength="300"
+          on-input="computeCharsRemainingTextArea()"></textarea>
+        <p style="font-weight: lighter; color: #999999">Quedan {{charsRemainingTextArea}} caracteres.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+          (click)="createTask(); addTaskModal.hide()">Crear!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div mdbModal #updateTaskModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: 'static',  keyboard: false}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close"
+          (click)="updateTaskModal.hide(); clearModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Modificar tarea</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              ID
+            </div>
+            <input type="number" id="id" class="form-control md-input" rows="4" [(ngModel)]="newTask.id" name="id"
+              disabled>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Ingresa un nombre
+            </div>
+            <input type="text" id="name" class="form-control md-input" rows="4" [(ngModel)]="newTask.name" name="name"
+              maxlength="10" on-input="computeCharsRemainingName()">
+            <p style="font-weight: lighter; color: #999999">Quedan {{charsRemainingName}} caracteres.</p>
+          </div>
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Selecciona una prioridad
+              <!--.Select prioridad-->
+              <select class="browser-default custom-select" [(ngModel)]="selectedPriority">
+                <option *ngFor="let priority of priorities" [value]="priority.value">{{ priority.label }}</option>
+              </select>
+              <!--./Select prioridad-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Ingresa una estimacion
+            </div>
+            <input type="number" id="estimation" class="form-control md-input" rows="4" [(ngModel)]="newTask.estimation"
+              name="estimation" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Fecha de creacion
+            </div>
+            <input type="date" id="creation" name="trip-start" [ngModel]="newTask.creation | date:'yyyy-MM-dd'" disabled>
+
+          </div>
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Fecha de modificacion
+            </div>
+            <input type="date" id="modification" name="trip-start"  [ngModel]="newTask.modification | date:'yyyy-MM-dd'" disabled>
+
+          </div>
+        </div>
+        <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+          Ingresa una descripci&#243;n
+        </div>
+        <textarea type="text" id="description" class="form-control md-textarea" rows="4"
+          [(ngModel)]="newTask.description" name="description" maxlength="300"
+          on-input="computeCharsRemainingTextArea()"></textarea>
+        <p style="font-weight: lighter; color: #999999">Quedan {{charsRemainingTextArea}} caracteres.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+          (click)="updateTask(); updateTaskModal.hide()">Modificar!</button>
+      </div>
+    </div>
+  </div>
+</div>

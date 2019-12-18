@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7">
+      <h3>Sprints</h3>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5 col-xl-5 text-right">
+      <button type="button" class="btn btn-warning text-uppercase btn-sm z-depth-0"
+        (click)="addSprintModal.show()">Nuevo</button>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha Comienzo</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody *ngIf='sprints.length > 0'>
+      <tr *ngFor="let item of sprints">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.startDate | date:'d MMMM y'}} </td>
+        <td>
+          <i class="fas fa-eye cursor-pointer mr-2 ml-2 " (click)="goToSprintLists(item);"></i>
+          <mdb-icon fas icon="trash" size="lg" (click)="openDeleteModal(item);" class="mr-2 ml-2 cursor-pointer">
+          </mdb-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div mdbModal #addSprintModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: 'static',  keyboard: false}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="addSprintModal.hide(); clearModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Crear un nuevo sprint</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Ingresa un nombre
+            </div>
+            <input type="text" id="name" class="form-control md-input" rows="4" [(ngModel)]="newSprint.name" name="name"
+              maxlength="10" on-input="computeCharsRemainingName()">
+            <p style="font-weight: lighter; color: #999999">Quedan {{charsRemainingName}} caracteres.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div style="font-weight: lighter; color: #999999; margin-top: 15px">
+              Fecha de inicio
+            </div>
+            <input type="date" id="creation" name="trip-start" [ngModel]="newSprint.startDate | date:'yyyy-MM-dd'" [value]="newSprint.startDate"
+              >
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+            (click)="createSprint(); addSprintModal.hide()">Crear!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
